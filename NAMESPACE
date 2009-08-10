@@ -1,0 +1,17 @@
+importFrom(kernlab, stringdot)
+importClassesFrom(kernlab, stringkernel)
+importMethodsFrom(kernlab, kernelMatrix, kernelMult, kernelPol)
+exportPattern("^[[:alpha:]]+")
+exportMethods(
+    "getkernel",
+    "kernelMatrix",
+    "kernelMult",
+    "kernelPol",
+    "show" 
+)
+exportClasses(
+    "multigapweight",
+    "stringkernelEx",
+    "stringkernelPrecomputed" 
+)
+useDynLib(stringkernels)
