@@ -52,7 +52,7 @@ This is potentially useful whenever the same kernel values are needed
 for multiple classification runs, e.g., cross-fold validation or parameter tuning.
 
 The kernel internally matches input items to the stored items and retrieves 
-the stored kernel values. When corpora are S4 objects (e.g., a corpus from \pkg{tm}) and/or very large, 
+the stored kernel values. When corpora are S4 objects and/or very large, 
 matching input items to stored items can consume a lot of time.
 The \code{use_dummy} flag can be used to avoid this. The flag instructs the kernel function 
 to interpret input values directly as indices into the kernel matrix.
@@ -75,8 +75,14 @@ Martin Kober \cr \email{martin.kober@gmail.com}
 }
 \examples{
 
+\donttest{
 library(tm)
-library(kernlab)
+
+## This is necessary to make tm's corpora usable with 
+## stringkernels' S4 classes.
+setOldClass(c("VCorpus", "Corpus"))
+setIs("Corpus", "list")
+
 data(crude)
 
 wdk = worddot(type="spectrum", length=2)
@@ -91,6 +97,6 @@ class = factor(rep(c(1,-1),10))
 model = ksvm(dummy[1:10], class[1:10], kernel=pre)
 
 predict(model, dummy[11:20])
-
+}
 }
 \keyword{ misc }

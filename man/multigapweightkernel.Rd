@@ -78,8 +78,14 @@ Martin Kober \cr \email{martin.kober@gmail.com}
 \code{\link{precomputedkernel}}
 }
 \examples{
-
+\donttest{
 library(tm)
+
+## This is necessary to make tm's corpora usable with 
+## stringkernels' S4 classes.
+setOldClass(c("VCorpus", "Corpus"))
+setIs("Corpus", "list")
+
 data(crude)
 
 m = multigapweightkernel(crude, maxlength=3, minlength=2)
@@ -89,7 +95,7 @@ k3 = getkernel(m, 3)
 
 kernelMatrix(k2, crude[1:5])
 kernelMatrix(k3, crude[1:5])
-
+}
 
 }
 \keyword{ misc }
