@@ -1,5 +1,5 @@
 importFrom(kernlab, stringdot)
-importClassesFrom(kernlab, stringkernel)
+importClassesFrom(kernlab, stringkernel, kernel, kfunction)
 importMethodsFrom(kernlab, kernelMatrix, kernelMult, kernelPol)
 exportPattern("^[[:alpha:]]+")
 exportMethods(
