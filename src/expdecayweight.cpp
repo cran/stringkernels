@@ -36,6 +36,7 @@
 // Updated : 24 Apr 2006
 //           12 Jul 2006
 
+
 #ifndef EXPDECAYWEIGHT_CPP
 #define EXPDECAYWEIGHT_CPP
 
@@ -43,6 +44,8 @@
 #include <cassert>
 
 #include "expdecayweight.h"
+
+using namespace std;
 
 
 /**
